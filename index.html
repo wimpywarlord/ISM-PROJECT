@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Kshitij Dhyani</title>
+		<style>
+			@import url(https://fonts.googleapis.com/css?family=Montserrat);
+			@-webkit-keyframes spin {
+				0% {
+					transform: rotate(0deg);
+				}
+				100% {
+					transform: rotate(360deg);
+				}
+			}
+			@keyframes spin {
+				0% {
+					transform: rotate(0deg);
+				}
+				100% {
+					transform: rotate(360deg);
+				}
+			}
+			@-webkit-keyframes color-1 {
+				0% {
+					background-color: #eb73b9;
+				}
+				100% {
+					background-color: #17ead9;
+				}
+			}
+			@keyframes color-1 {
+				0% {
+					background-color: #eb73b9;
+				}
+				100% {
+					background-color: #17ead9;
+				}
+			}
+			::-moz-selection {
+				background: #00ddff;
+				color: white;
+				text-shadow: none;
+			}
+			::selection {
+				background: #00ddff;
+				color: white;
+				text-shadow: none;
+			}
+
+			::-webkit-selection {
+				background: #00ddff;
+				color: white;
+				text-shadow: none;
+			}
+
+			body {
+				font-family: "Montserrat", "Helevtica", sans-serif;
+				position: relative;
+				width: 100%;
+				height: 100vh;
+				background-color: #f2ecec;
+				color: #4b4848;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				transition: background-color 1.25s ease-in-out;
+			}
+			body.is-focus {
+				background-color: #17ead9;
+			}
+
+			.title-container {
+				position: absolute;
+				top: 38%;
+				left: 50%;
+				width: 80%;
+				margin: 0 auto;
+				text-align: center;
+				overflow: hidden;
+				transform: translate(-50%, -50%);
+			}
+			.title-container .title {
+				transform: translateY(-100%);
+				transition: transform 0.3s ease;
+				transition-delay: 0.25s;
+				margin: 0;
+				color: #00ddff;
+			}
+			.title-container .title-down {
+				transform: translateY(100%);
+				transition: transform 0.3s ease;
+				transition-delay: 0.25s;
+				margin: 0;
+				color: #00ddff;
+			}
+			.is-focus .title-container .title {
+				transform: translateY(0);
+			}
+			.is-type .title-container .title-down {
+				transform: translateY(-30px);
+			}
+			.is-type .title-container .title {
+				transform: translateY(-100%);
+			}
+
+			.field-container {
+				position: relative;
+				padding: 0;
+				margin: 0;
+				border: 0;
+				width: 330px;
+				height: 40px;
+			}
+
+			.icons-container {
+				position: absolute;
+				top: 4px;
+				right: 3px;
+				width: 35px;
+				height: 35px;
+				overflow: hidden;
+			}
+
+			.icon-close {
+				position: absolute;
+				top: 2px;
+				left: 2px;
+				width: 75%;
+				height: 75%;
+				opacity: 0;
+				cursor: pointer;
+				transform: translateX(-200%);
+				border-radius: 50%;
+				transition: opacity 0.25s ease,
+					transform 0.43s cubic-bezier(0.694, 0.048, 0.335, 1);
+			}
+			.icon-close:before {
+				content: "";
+				border-radius: 50%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				opacity: 0;
+				border: 2px solid transparent;
+				border-top-color: #00ddff;
+				border-left-color: #00ddff;
+				border-bottom-color: #00ddff;
+				transition: opacity 0.2s ease;
+			}
+			.icon-close .x-up {
+				position: relative;
+				width: 100%;
+				height: 50%;
+			}
+			.icon-close .x-up:before {
+				content: "";
+				position: absolute;
+				bottom: 2px;
+				left: 3px;
+				width: 50%;
+				height: 2px;
+				background-color: #00ddff;
+				transform: rotate(45deg);
+			}
+			.icon-close .x-up:after {
+				content: "";
+				position: absolute;
+				bottom: 2px;
+				right: 0px;
+				width: 50%;
+				height: 2px;
+				background-color: #00ddff;
+				transform: rotate(-45deg);
+			}
+			.icon-close .x-down {
+				position: relative;
+				width: 100%;
+				height: 50%;
+			}
+			.icon-close .x-down:before {
+				content: "";
+				position: absolute;
+				top: 5px;
+				left: 4px;
+				width: 50%;
+				height: 2px;
+				background-color: #00ddff;
+				transform: rotate(-45deg);
+			}
+			.icon-close .x-down:after {
+				content: "";
+				position: absolute;
+				top: 5px;
+				right: 1px;
+				width: 50%;
+				height: 2px;
+				background-color: #00ddff;
+				transform: rotate(45deg);
+			}
+			.is-type .icon-close:before {
+				opacity: 1;
+				-webkit-animation: spin 0.85s infinite;
+				animation: spin 0.85s infinite;
+			}
+			.is-type .icon-close .x-up:before,
+			.is-type .icon-close .x-up:after {
+				-webkit-animation: color-1 0.85s infinite;
+				animation: color-1 0.85s infinite;
+			}
+			.is-type .icon-close .x-up:after {
+				-webkit-animation-delay: 0.3s;
+				animation-delay: 0.3s;
+			}
+			.is-type .icon-close .x-down:before,
+			.is-type .icon-close .x-down:after {
+				-webkit-animation: color-1 0.85s infinite;
+				animation: color-1 0.85s infinite;
+			}
+			.is-type .icon-close .x-down:before {
+				-webkit-animation-delay: 0.2s;
+				animation-delay: 0.2s;
+			}
+			.is-type .icon-close .x-down:after {
+				-webkit-animation-delay: 0.1s;
+				animation-delay: 0.1s;
+			}
+
+			.icon-search {
+				position: relative;
+				top: 5px;
+				left: 8px;
+				width: 50%;
+				height: 50%;
+				opacity: 1;
+				border-radius: 50%;
+				border: 3px solid #c7d0f8;
+				transition: opacity 0.25s ease,
+					transform 0.43s cubic-bezier(0.694, 0.048, 0.335, 1);
+			}
+			.icon-search:after {
+				content: "";
+				position: absolute;
+				bottom: -9px;
+				right: -2px;
+				width: 4px;
+				border-radius: 3px;
+				transform: rotate(-45deg);
+				height: 10px;
+				background-color: #c7d0f8;
+			}
+
+			.field {
+				border: 0;
+				width: 100%;
+				height: 100%;
+				padding: 10px 20px;
+				background: white;
+				border-radius: 3px;
+				box-shadow: 0px 8px 15px rgba(75, 72, 72, 0.1);
+				transition: all 0.4s ease;
+			}
+			.field:focus {
+				outline: none;
+				box-shadow: 0px 9px 20px rgba(75, 72, 72, 0.3);
+			}
+			.field:focus + .icons-container .icon-close {
+				opacity: 1;
+				transform: translateX(0);
+			}
+			.field:focus + .icons-container .icon-search {
+				opacity: 0;
+				transform: translateX(200%);
+			}
+			/* ASDA */
+			@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				background-color: #28223f;
+				font-family: Montserrat, sans-serif;
+
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+
+				min-height: 100vh;
+				margin: 0;
+			}
+
+			h3 {
+				margin: 10px 0;
+			}
+
+			h6 {
+				margin: 5px 0;
+				text-transform: uppercase;
+			}
+
+			p {
+				font-size: 14px;
+				line-height: 21px;
+			}
+
+			.card-container {
+				background-color: #231e39;
+				border-radius: 5px;
+				box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
+				color: #b3b8cd;
+				padding-top: 30px;
+				position: relative;
+				width: 350px;
+				max-width: 100%;
+				text-align: center;
+			}
+
+			.card-container .pro {
+				color: #231e39;
+				background-color: #febb0b;
+				border-radius: 3px;
+				font-size: 14px;
+				font-weight: bold;
+				padding: 3px 7px;
+				position: absolute;
+				top: 30px;
+				left: 30px;
+			}
+
+			.card-container .round {
+				border: 1px solid #03bfcb;
+				border-radius: 50%;
+				padding: 7px;
+			}
+
+			button.primary {
+				background-color: #03bfcb;
+				border: 1px solid #03bfcb;
+				border-radius: 3px;
+				color: #231e39;
+				font-family: Montserrat, sans-serif;
+				font-weight: 500;
+				padding: 10px 25px;
+			}
+
+			button.primary.ghost {
+				background-color: transparent;
+				color: #02899c;
+			}
+
+			.skills {
+				background-color: #1f1a36;
+				text-align: left;
+				padding: 15px;
+				margin-top: 30px;
+			}
+
+			.skills ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+			}
+
+			.skills ul li {
+				border: 1px solid #2d2747;
+				border-radius: 2px;
+				display: inline-block;
+				font-size: 12px;
+				margin: 0 7px 7px 0;
+				padding: 7px;
+			}
+
+			footer {
+				background-color: #222;
+				color: #fff;
+				font-size: 14px;
+				bottom: 0;
+				position: fixed;
+				left: 0;
+				right: 0;
+				text-align: center;
+				z-index: 999;
+			}
+
+			footer p {
+				margin: 10px 0;
+			}
+
+			footer i {
+				color: red;
+			}
+
+			footer a {
+				color: #3c97bf;
+				text-decoration: none;
+			}
+		</style>
+	</head>
+	<body style="background-color: #17202a">
+		<!-- <div class="title-container">
+			<h1 class="title">Searching the Student.</h1>
+			<h1 class="title-down">Looking in the Block chain...</h1>
+		</div> -->
+
+		<fieldset class="field-container">
+			<input
+				type="text"
+				id="someTextBox"
+				placeholder="Search..."
+				class="field"
+			/>
+			<div class="icons-container">
+				<div class="icon-search"></div>
+				<div class="icon-close">
+					<div class="x-up"></div>
+					<div class="x-down"></div>
+				</div>
+			</div>
+		</fieldset>
+
+		<div id="Search_Results" style="margin: 10px"></div>
+		<div class="card-container">
+			<span class="pro">STUDENT</span>
+			<img
+				class="round"
+				src="https://randomuser.me/api/portraits/women/79.jpg"
+				alt="user"
+			/>
+			<h3 id="name_of_student">Student Name</h3>
+			<h6 id="roll_no">00XXX0000</h6>
+			<p id="school">
+				Name of the School <br />
+				TGoes Here
+			</p>
+			<div class="buttons">
+				<button class="primary">3th Year</button>
+				<button id="school_code" class="primary ghost">SCHOOL</button>
+			</div>
+			<div class="skills">
+				<h6>Skills</h6>
+				<ul>
+					<li id="cgpa">CGPA : 0</li>
+					<li id="year_of_g">GRADUATION : 0</li>
+					<li id="achivements">AWARDS : 0</li>
+					<li id="internship">INTERNSHIPS : 0</li>
+					<li id="research">S RESEARCH : 0</li>
+					<li id="no_of_back">N GRADES : 0</li>
+					<li id="age">AGE : 0</li>
+				</ul>
+			</div>
+		</div>
+		<!-- CARD -->
+		<footer>
+			<p>
+				Created with 💗<i class="fa fa-heart">by </i>
+				<a
+					target="_blank"
+					href="https://www.linkedin.com/in/kshitijdhyani/"
+					>Kshitij Team</a
+				>
+				- powered by Block Chain, handled by
+				<a target="_blank" href="#">Shubra</a>
+				- Design made by
+				<a target="_blank" href="#">Jahanvi</a>
+			</p>
+		</footer>
+	</body>
+
+	<!-- JQUERY -->
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+	<script
+		src="https://code.jquery.com/jquery-3.6.0.js"
+		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+		crossorigin="anonymous"
+	></script>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<!-- THIS THIS WEB3 BELOW -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.3.4/web3.min.js"></script>
+	<script>
+		// FORM ANIMATION
+		$(document).on("ready", function () {
+			$(".field").on("focus", function () {
+				$("body").addClass("is-focus");
+			});
+
+			$(".field").on("blur", function () {
+				$("body").removeClass("is-focus is-type");
+			});
+
+			$(".field").on("keydown", function (event) {
+				$("body").addClass("is-type");
+				if (event.which === 8 && $(this).val() === "") {
+					$("body").removeClass("is-type");
+				}
+			});
+		});
+		// ENTER KEY DETECTION
+		$("#someTextBox").keypress(function (event) {
+			var keycode = event.keyCode ? event.keyCode : event.which;
+			if (keycode == "13") {
+				console.log($("#someTextBox").val());
+				printStudent($("#someTextBox").val());
+			}
+		});
+		// WEb3
+		async function loadWeb3() {
+			if (window.ethereum) {
+				window.web3 = new Web3(window.ethereum);
+				window.ethereum.enable();
+			}
+		}
+		async function loadContract() {
+			return await new window.web3.eth.Contract(
+				[
+					{
+						inputs: [
+							{
+								internalType: "string",
+								name: "_rollno",
+								type: "string",
+							},
+							{
+								internalType: "string",
+								name: "_name",
+								type: "string",
+							},
+							{
+								internalType: "uint256",
+								name: "_age",
+								type: "uint256",
+							},
+							{
+								internalType: "uint256",
+								name: "_cgpa",
+								type: "uint256",
+							},
+							{
+								internalType: "uint256",
+								name: "_year_of_g",
+								type: "uint256",
+							},
+							{
+								internalType: "uint256",
+								name: "_no_of_back",
+								type: "uint256",
+							},
+							{
+								internalType: "uint256",
+								name: "_achivements",
+								type: "uint256",
+							},
+							{
+								internalType: "string",
+								name: "_school",
+								type: "string",
+							},
+							{
+								internalType: "string",
+								name: "_school_code",
+								type: "string",
+							},
+							{
+								internalType: "uint256",
+								name: "_research",
+								type: "uint256",
+							},
+							{
+								internalType: "uint256",
+								name: "_internship",
+								type: "uint256",
+							},
+						],
+						name: "createStudent",
+						outputs: [],
+						stateMutability: "nonpayable",
+						type: "function",
+					},
+					{
+						inputs: [],
+						stateMutability: "nonpayable",
+						type: "constructor",
+					},
+					{
+						inputs: [
+							{
+								internalType: "uint256",
+								name: "index",
+								type: "uint256",
+							},
+						],
+						name: "readStudent",
+						outputs: [
+							{
+								components: [
+									{
+										internalType: "string",
+										name: "rollno",
+										type: "string",
+									},
+									{
+										internalType: "string",
+										name: "name",
+										type: "string",
+									},
+									{
+										internalType: "uint256",
+										name: "age",
+										type: "uint256",
+									},
+									{
+										internalType: "uint256",
+										name: "cgpa",
+										type: "uint256",
+									},
+									{
+										internalType: "uint256",
+										name: "year_of_g",
+										type: "uint256",
+									},
+									{
+										internalType: "uint256",
+										name: "no_of_back",
+										type: "uint256",
+									},
+									{
+										internalType: "uint256",
+										name: "achivements",
+										type: "uint256",
+									},
+									{
+										internalType: "string",
+										name: "school",
+										type: "string",
+									},
+									{
+										internalType: "string",
+										name: "school_code",
+										type: "string",
+									},
+									{
+										internalType: "uint256",
+										name: "research",
+										type: "uint256",
+									},
+									{
+										internalType: "uint256",
+										name: "internship",
+										type: "uint256",
+									},
+								],
+								internalType: "struct InfoStudent.Student",
+								name: "",
+								type: "tuple",
+							},
+						],
+						stateMutability: "view",
+						type: "function",
+					},
+					{
+						inputs: [
+							{
+								internalType: "string",
+								name: "_roll",
+								type: "string",
+							},
+						],
+						name: "rollStudent",
+						outputs: [
+							{
+								components: [
+									{
+										internalType: "string",
+										name: "rollno",
+										type: "string",
+									},
+									{
+										internalType: "string",
+										name: "name",
+										type: "string",
+									},
+									{
+										internalType: "uint256",
+										name: "age",
+										type: "uint256",
+									},
+									{
+										internalType: "uint256",
+										name: "cgpa",
+										type: "uint256",
+									},
+									{
+										internalType: "uint256",
+										name: "year_of_g",
+										type: "uint256",
+									},
+									{
+										internalType: "uint256",
+										name: "no_of_back",
+										type: "uint256",
+									},
+									{
+										internalType: "uint256",
+										name: "achivements",
+										type: "uint256",
+									},
+									{
+										internalType: "string",
+										name: "school",
+										type: "string",
+									},
+									{
+										internalType: "string",
+										name: "school_code",
+										type: "string",
+									},
+									{
+										internalType: "uint256",
+										name: "research",
+										type: "uint256",
+									},
+									{
+										internalType: "uint256",
+										name: "internship",
+										type: "uint256",
+									},
+								],
+								internalType: "struct InfoStudent.Student",
+								name: "",
+								type: "tuple",
+							},
+						],
+						stateMutability: "view",
+						type: "function",
+					},
+					{
+						inputs: [],
+						name: "studentCount",
+						outputs: [
+							{
+								internalType: "uint256",
+								name: "",
+								type: "uint256",
+							},
+						],
+						stateMutability: "view",
+						type: "function",
+					},
+					{
+						inputs: [
+							{
+								internalType: "uint256",
+								name: "",
+								type: "uint256",
+							},
+						],
+						name: "students",
+						outputs: [
+							{
+								internalType: "string",
+								name: "rollno",
+								type: "string",
+							},
+							{
+								internalType: "string",
+								name: "name",
+								type: "string",
+							},
+							{
+								internalType: "uint256",
+								name: "age",
+								type: "uint256",
+							},
+							{
+								internalType: "uint256",
+								name: "cgpa",
+								type: "uint256",
+							},
+							{
+								internalType: "uint256",
+								name: "year_of_g",
+								type: "uint256",
+							},
+							{
+								internalType: "uint256",
+								name: "no_of_back",
+								type: "uint256",
+							},
+							{
+								internalType: "uint256",
+								name: "achivements",
+								type: "uint256",
+							},
+							{
+								internalType: "string",
+								name: "school",
+								type: "string",
+							},
+							{
+								internalType: "string",
+								name: "school_code",
+								type: "string",
+							},
+							{
+								internalType: "uint256",
+								name: "research",
+								type: "uint256",
+							},
+							{
+								internalType: "uint256",
+								name: "internship",
+								type: "uint256",
+							},
+						],
+						stateMutability: "view",
+						type: "function",
+					},
+				],
+				"0xD68Da58aC5a382d9a5F7b5969358a9b5244d0E5E"
+			);
+		}
+		async function printStudent(roll_no) {
+			const student = await window.contract.methods
+				.rollStudent(roll_no)
+				.call();
+			console.log(student);
+			// console.log($("#name_of_student").html());
+			if (student.name !== "") {
+				$("#name_of_student").html(student.name);
+				$("#roll_no").html(student.rollno);
+				$("#cgpa").html("CGPA : " + student.cgpa);
+				$("#age").html("AGE : " + student.age);
+				$("#achivements").html("ACHIEVEMENT :" + student.achivements);
+				$("#internship").html("INTERNSHIPS :" + student.internship);
+				$("#no_of_back").html("N GRADES : " + student.no_of_back);
+				$("#research").html("RESEARCH : " + student.research);
+				$("#school").html(student.school);
+				$("#school_code").html(student.school_code);
+				$("#year_of_g").html("GRADUATION : " + student.year_of_g);
+			} else {
+				swal(
+					"Wrong Search Query",
+					"Enter a Valid roll Number for searching!",
+					"error"
+				);
+			}
+
+			// const response = window.contract.methods
+			// 	.createStudent(
+			// 		"TEST",
+			// 		"JAHANVI MISHRA",
+			// 		21,
+			// 		5,
+			// 		2012,
+			// 		0,
+			// 		5,
+			// 		"School of Information Technology and Engineering",
+			// 		"SITE",
+			// 		1,
+			// 		3
+			// 	)
+			// 	.call();
+			// console.log(response);
+		}
+		async function load() {
+			await loadWeb3();
+			window.contract = await loadContract();
+		}
+		load();
+	</script>
+</html>
