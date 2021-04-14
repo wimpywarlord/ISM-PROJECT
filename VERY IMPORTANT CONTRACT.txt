@@ -1,0 +1,69 @@
+// SPDX-License-Identifier: MIT
+
+pragma solidity >0.5.0;
+pragma abicoder v2;
+
+contract InfoStudent {
+    uint public studentCount = 0;
+
+    struct Student {
+        string rollno;
+        string name;
+        uint age;
+        uint cgpa;
+        uint year_of_g;
+        uint no_of_back;
+        uint achivements;
+        string school;
+        string school_code;
+        uint research;
+        uint  internship;
+        uint s_grade;
+        string year_of_study_char;
+    }
+    mapping(uint => Student) public students;
+
+    constructor() {
+        
+    createStudent("18BIT0131","KSHITIJ DHYANI",21,9,2022,0,5,"School of Information Technology and Engineering","SITE",3,1,10,"3rd YEAR");
+    createStudent("18BCI0216","RISHABH SINGH",22,8,2021,0,5,"School of Computer Science and Engineering","SCOPE",3,1,5,"4thEAR");
+    createStudent("17BCE0001","KIRAN SOOD",23,6,2023,0,5,"School of Electronics and Communication","SENSE",3,1,8,"3rd YEAR");
+    createStudent("18BIT0231","RAM SINGH",19,10,2026,0,5,"School of Information Technology and Engineering","SITE",7,5,10,"4th YEAR");
+    createStudent("18BIT0111","MADHUR BHATIA",21,9,2018,0,5,"School of Information Technology and Engineering","SITE",2,1,30,"2rd YEAR");
+    createStudent("18BCI0216","SURESH SINGH",22,8,2016,0,5,"School of Information Technology and Engineering","SITE",3,1,20,"3rd YEAR");
+    createStudent("13BET0001","MAHAK KAUR",23,6,2019,0,5,"School of Mechnical Engineering","MECH",3,1,10,"3rd YEAR");
+    createStudent("15MCT0231","RAM BEHL",26,10,2020,0,5,"School of Information Technology and Engineering","SITE",0,3,1,"3rd YEAR");
+    createStudent("17BBE0111","LAKSHIT KUMAR",54,7,2030,0,5,"School of Computer Science and Engineering","SCOPE",3,1,6,"1st YEAR");
+    createStudent("18BCI0216","SHUBRA GUPTA",22,10,2045,0,5,"School of Chemical Engineering","CHEM",3,1,10,"3rd YEAR");
+    createStudent("17BCE0001","JAHANVI MISHRA",21,5,2012,0,5,"School of Information Technology and Engineering","SITE",1,3,10,"3rd YEAR");
+    createStudent("18BIT0231","KRISH KHERA",21,7,2032,0,5,"School of Information Technology and Engineering","SITE",8,1,10,"3rd YEAR");
+    createStudent("18BIT0002","PRAKASH BHATIA",21,9,2012,0,5,"School of Information Technology and Engineering","SITE",7,1,10,"2nd YEAR");
+    createStudent("18BCI0216","NITIN VENDIKARI",20,9,2062,0,5,"School of Computer Science and Engineering","SCOPE",4,1,10,"1st YEAR");
+    createStudent("17BET0012","GURBEER KAUR",20,8,2055,0,5,"School of Information Technology and Engineering","SITE",3,2,10,"2nd YEAR");
+    createStudent("19MCT0156","AAGAMAN BERI",26,6,2034,0,5,"School of Mechnical Engineering","MECH",3,1,10,"3rd YEAR");
+    
+    }
+
+    function createStudent(string memory _rollno,string memory _name,uint _age,uint _cgpa,uint _year_of_g,uint _no_of_back,uint _achivements,string memory _school,string memory _school_code,uint _research, uint _internship ,uint _s_grade, string memory _year_of_study_char) public {
+        studentCount ++;
+        students[studentCount] = Student(_rollno,_name,_age,_cgpa,_year_of_g,_no_of_back,_achivements,_school,_school_code,_research,_internship,_s_grade,_year_of_study_char);
+    }
+    
+    function readStudent(uint index) public view returns (Student memory)
+    {
+         return students[index];
+    }
+    
+    function rollStudent(string memory _roll) public view returns (Student memory)
+    {
+        for(uint i=0 ; i<studentCount ; i++)
+        {
+            Student memory spec_student = students[i];
+            if(keccak256(abi.encodePacked(spec_student.rollno)) == keccak256(abi.encodePacked(_roll)))
+            {
+                 return spec_student;
+            }
+        }
+    }
+
+}
