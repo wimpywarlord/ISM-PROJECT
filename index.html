@@ -441,7 +441,11 @@
 			</p>
 			<div class="buttons">
 				<button class="primary">3th Year</button>
-				<button id="school_code" class="primary ghost">SCHOOL</button>
+				<a href="/charts.html">
+					<button id="school_code" class="primary ghost">
+						ANALYTICS
+					</button></a
+				>
 			</div>
 			<div class="skills">
 				<h6>Skills</h6>
@@ -456,6 +460,7 @@
 				</ul>
 			</div>
 		</div>
+
 		<!-- CARD -->
 		<footer>
 			<p>
@@ -520,310 +525,311 @@
 			}
 		}
 		async function loadContract() {
-			return await new window.web3.eth.Contract([
-	{
-		"inputs": [],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_rollno",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_name",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_age",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_cgpa",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_year_of_g",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_no_of_back",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_achivements",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "_school",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_school_code",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_research",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_internship",
-				"type": "uint256"
-			}
-		],
-		"name": "createStudent",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "index",
-				"type": "uint256"
-			}
-		],
-		"name": "readStudent",
-		"outputs": [
-			{
-				"components": [
+			return await new window.web3.eth.Contract(
+				[
 					{
-						"internalType": "string",
-						"name": "rollno",
-						"type": "string"
+						inputs: [],
+						stateMutability: "nonpayable",
+						type: "constructor",
 					},
 					{
-						"internalType": "string",
-						"name": "name",
-						"type": "string"
+						inputs: [
+							{
+								internalType: "string",
+								name: "_rollno",
+								type: "string",
+							},
+							{
+								internalType: "string",
+								name: "_name",
+								type: "string",
+							},
+							{
+								internalType: "uint256",
+								name: "_age",
+								type: "uint256",
+							},
+							{
+								internalType: "uint256",
+								name: "_cgpa",
+								type: "uint256",
+							},
+							{
+								internalType: "uint256",
+								name: "_year_of_g",
+								type: "uint256",
+							},
+							{
+								internalType: "uint256",
+								name: "_no_of_back",
+								type: "uint256",
+							},
+							{
+								internalType: "uint256",
+								name: "_achivements",
+								type: "uint256",
+							},
+							{
+								internalType: "string",
+								name: "_school",
+								type: "string",
+							},
+							{
+								internalType: "string",
+								name: "_school_code",
+								type: "string",
+							},
+							{
+								internalType: "uint256",
+								name: "_research",
+								type: "uint256",
+							},
+							{
+								internalType: "uint256",
+								name: "_internship",
+								type: "uint256",
+							},
+						],
+						name: "createStudent",
+						outputs: [],
+						stateMutability: "nonpayable",
+						type: "function",
 					},
 					{
-						"internalType": "uint256",
-						"name": "age",
-						"type": "uint256"
+						inputs: [
+							{
+								internalType: "uint256",
+								name: "index",
+								type: "uint256",
+							},
+						],
+						name: "readStudent",
+						outputs: [
+							{
+								components: [
+									{
+										internalType: "string",
+										name: "rollno",
+										type: "string",
+									},
+									{
+										internalType: "string",
+										name: "name",
+										type: "string",
+									},
+									{
+										internalType: "uint256",
+										name: "age",
+										type: "uint256",
+									},
+									{
+										internalType: "uint256",
+										name: "cgpa",
+										type: "uint256",
+									},
+									{
+										internalType: "uint256",
+										name: "year_of_g",
+										type: "uint256",
+									},
+									{
+										internalType: "uint256",
+										name: "no_of_back",
+										type: "uint256",
+									},
+									{
+										internalType: "uint256",
+										name: "achivements",
+										type: "uint256",
+									},
+									{
+										internalType: "string",
+										name: "school",
+										type: "string",
+									},
+									{
+										internalType: "string",
+										name: "school_code",
+										type: "string",
+									},
+									{
+										internalType: "uint256",
+										name: "research",
+										type: "uint256",
+									},
+									{
+										internalType: "uint256",
+										name: "internship",
+										type: "uint256",
+									},
+								],
+								internalType: "struct InfoStudent.Student",
+								name: "",
+								type: "tuple",
+							},
+						],
+						stateMutability: "view",
+						type: "function",
 					},
 					{
-						"internalType": "uint256",
-						"name": "cgpa",
-						"type": "uint256"
+						inputs: [
+							{
+								internalType: "string",
+								name: "_roll",
+								type: "string",
+							},
+						],
+						name: "rollStudent",
+						outputs: [
+							{
+								components: [
+									{
+										internalType: "string",
+										name: "rollno",
+										type: "string",
+									},
+									{
+										internalType: "string",
+										name: "name",
+										type: "string",
+									},
+									{
+										internalType: "uint256",
+										name: "age",
+										type: "uint256",
+									},
+									{
+										internalType: "uint256",
+										name: "cgpa",
+										type: "uint256",
+									},
+									{
+										internalType: "uint256",
+										name: "year_of_g",
+										type: "uint256",
+									},
+									{
+										internalType: "uint256",
+										name: "no_of_back",
+										type: "uint256",
+									},
+									{
+										internalType: "uint256",
+										name: "achivements",
+										type: "uint256",
+									},
+									{
+										internalType: "string",
+										name: "school",
+										type: "string",
+									},
+									{
+										internalType: "string",
+										name: "school_code",
+										type: "string",
+									},
+									{
+										internalType: "uint256",
+										name: "research",
+										type: "uint256",
+									},
+									{
+										internalType: "uint256",
+										name: "internship",
+										type: "uint256",
+									},
+								],
+								internalType: "struct InfoStudent.Student",
+								name: "",
+								type: "tuple",
+							},
+						],
+						stateMutability: "view",
+						type: "function",
 					},
 					{
-						"internalType": "uint256",
-						"name": "year_of_g",
-						"type": "uint256"
+						inputs: [],
+						name: "studentCount",
+						outputs: [
+							{
+								internalType: "uint256",
+								name: "",
+								type: "uint256",
+							},
+						],
+						stateMutability: "view",
+						type: "function",
 					},
 					{
-						"internalType": "uint256",
-						"name": "no_of_back",
-						"type": "uint256"
+						inputs: [
+							{
+								internalType: "uint256",
+								name: "",
+								type: "uint256",
+							},
+						],
+						name: "students",
+						outputs: [
+							{
+								internalType: "string",
+								name: "rollno",
+								type: "string",
+							},
+							{
+								internalType: "string",
+								name: "name",
+								type: "string",
+							},
+							{
+								internalType: "uint256",
+								name: "age",
+								type: "uint256",
+							},
+							{
+								internalType: "uint256",
+								name: "cgpa",
+								type: "uint256",
+							},
+							{
+								internalType: "uint256",
+								name: "year_of_g",
+								type: "uint256",
+							},
+							{
+								internalType: "uint256",
+								name: "no_of_back",
+								type: "uint256",
+							},
+							{
+								internalType: "uint256",
+								name: "achivements",
+								type: "uint256",
+							},
+							{
+								internalType: "string",
+								name: "school",
+								type: "string",
+							},
+							{
+								internalType: "string",
+								name: "school_code",
+								type: "string",
+							},
+							{
+								internalType: "uint256",
+								name: "research",
+								type: "uint256",
+							},
+							{
+								internalType: "uint256",
+								name: "internship",
+								type: "uint256",
+							},
+						],
+						stateMutability: "view",
+						type: "function",
 					},
-					{
-						"internalType": "uint256",
-						"name": "achivements",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "school",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "school_code",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "research",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "internship",
-						"type": "uint256"
-					}
 				],
-				"internalType": "struct InfoStudent.Student",
-				"name": "",
-				"type": "tuple"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_roll",
-				"type": "string"
-			}
-		],
-		"name": "rollStudent",
-		"outputs": [
-			{
-				"components": [
-					{
-						"internalType": "string",
-						"name": "rollno",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "name",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "age",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "cgpa",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "year_of_g",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "no_of_back",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "achivements",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "school",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "school_code",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "research",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "internship",
-						"type": "uint256"
-					}
-				],
-				"internalType": "struct InfoStudent.Student",
-				"name": "",
-				"type": "tuple"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "studentCount",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "students",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "rollno",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "age",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "cgpa",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "year_of_g",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "no_of_back",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "achivements",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "school",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "school_code",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "research",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "internship",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	}
-],
 				"0xeEE98e8F1e48162b6285312A4e604A640a06647d"
 			);
 		}
