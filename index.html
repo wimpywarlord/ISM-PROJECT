@@ -401,9 +401,59 @@
 				color: #3c97bf;
 				text-decoration: none;
 			}
+			.ear {
+				border-radius: 50%;
+				background-color: white;
+				border: 4px solid rgb(255, 0, 0);
+				padding: 5px;
+				font-size: 37px;
+				box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+					0 1px 2px rgba(0, 0, 0, 0.24);
+				position: absolute;
+				right: 20px;
+				top: 20px;
+				transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+			}
+			.ear:hover {
+				box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+					0 10px 10px rgba(0, 0, 0, 0.22);
+				cursor: pointer;
+				transform: scale(1.1);
+			}
+			.ear2 {
+				border-radius: 50%;
+				background-color: white;
+				border: 4px solid rgb(255, 0, 0);
+				padding: 5px;
+				font-size: 37px;
+				box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+					0 1px 2px rgba(0, 0, 0, 0.24);
+				position: absolute;
+				left: 20px;
+				top: 20px;
+				transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+			}
+			.ear2:hover {
+				box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+					0 10px 10px rgba(0, 0, 0, 0.22);
+				cursor: pointer;
+				transform: scale(1.1);
+			}
 		</style>
 	</head>
 	<body style="background-color: #17202a">
+		<div data-bs-toggle="modal" data-bs-target="#exampleModal" class="ear">
+			🍭
+		</div>
+		<a
+			id="transcript_student"
+			data-bs-toggle="modal"
+			data-bs-target="#exampleModal3"
+			target="_blank"
+		>
+			<div class="ear2">🎀</div>
+		</a>
+
 		<!-- <div class="title-container">
 			<h1 class="title">Searching the Student.</h1>
 			<h1 class="title-down">Looking in the Block chain...</h1>
@@ -441,7 +491,7 @@
 			</p>
 			<div class="buttons">
 				<button class="primary">3th Year</button>
-				<a href="/charts.html">
+				<a href="/charthome.html">
 					<button id="school_code" class="primary ghost">
 						ANALYTICS
 					</button></a
@@ -456,8 +506,133 @@
 					<li id="internship">INTERNSHIPS : 0</li>
 					<li id="research">S RESEARCH : 0</li>
 					<li id="no_of_back">N GRADES : 0</li>
-					<li id="age">AGE : 0</li>
+					<li>AGE : 21</li>
 				</ul>
+			</div>
+		</div>
+
+		<!-- Modal 1-->
+		<div
+			class="modal fade"
+			id="exampleModal"
+			tabindex="-1"
+			aria-labelledby="exampleModalLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">
+							Modal title
+						</h5>
+						<button
+							type="button"
+							class="btn-close"
+							data-bs-dismiss="modal"
+							aria-label="Close"
+						></button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="mb-3">
+								<label for="skill" class="form-label"
+									>Enter the Skill Filter</label
+								>
+								<div id="emailHelp" class="form-text">
+									Choose from Web dev, App dev, Blockchain,
+									and ML.
+								</div>
+								<input
+									type="text"
+									class="form-control"
+									id="skill_input_box"
+									aria-describedby="skillfilter"
+								/>
+							</div>
+							<button
+								type="button"
+								onclick="give_all_student_with_skill()"
+								class="btn btn-primary"
+								data-bs-toggle="modal"
+								data-bs-target="#exampleModal"
+							>
+								Submit
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal 2-->
+		<div
+			class="modal fade"
+			id="exampleModal2"
+			tabindex="-1"
+			aria-labelledby="exampleModalLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">
+							Modal title
+						</h5>
+						<button
+							type="button"
+							class="btn-close"
+							data-bs-dismiss="modal"
+							aria-label="Close"
+						></button>
+					</div>
+					<div class="modal-body">
+						<div id="list_box"></div>
+					</div>
+					<div class="modal-footer">
+						<button
+							type="button"
+							class="btn btn-secondary"
+							data-bs-dismiss="modal"
+						>
+							Close
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal 3 -->
+		<div
+			class="modal fade"
+			id="exampleModal3"
+			tabindex="-1"
+			aria-labelledby="exampleModalLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">
+							Modal title
+						</h5>
+						<button
+							type="button"
+							class="close"
+							data-dismiss="modal"
+							aria-label="Close"
+						>
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<iframe
+							src="https://drive.google.com/file/d/1TRGQZDbI5qq321cqLv39lr4LNQKUTFZI/preview"
+							frameborder="0"
+							height="600px"
+							width="100%"
+						></iframe>
+					</div>
+				</div>
 			</div>
 		</div>
 
@@ -477,6 +652,12 @@
 			</p>
 		</footer>
 	</body>
+	<!-- ENCRYPTION OF TRANSCRIPT LINK -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"
+		integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o="
+		crossorigin="anonymous"
+	></script>
 
 	<!-- JQUERY -->
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -486,6 +667,20 @@
 		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
 		crossorigin="anonymous"
 	></script>
+	<!-- BOOT STRAP -->
+	<link
+		href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+		rel="stylesheet"
+		integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+		crossorigin="anonymous"
+	/>
+	<!-- JavaScript Bundle with Popper -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+		crossorigin="anonymous"
+	></script>
+
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -545,9 +740,9 @@
 								type: "string",
 							},
 							{
-								internalType: "uint256",
-								name: "_age",
-								type: "uint256",
+								internalType: "string",
+								name: "_skill_filter",
+								type: "string",
 							},
 							{
 								internalType: "uint256",
@@ -560,9 +755,9 @@
 								type: "uint256",
 							},
 							{
-								internalType: "uint256",
-								name: "_no_of_back",
-								type: "uint256",
+								internalType: "string",
+								name: "_trans",
+								type: "string",
 							},
 							{
 								internalType: "uint256",
@@ -618,9 +813,9 @@
 										type: "string",
 									},
 									{
-										internalType: "uint256",
-										name: "age",
-										type: "uint256",
+										internalType: "string",
+										name: "skill_filter",
+										type: "string",
 									},
 									{
 										internalType: "uint256",
@@ -633,9 +828,9 @@
 										type: "uint256",
 									},
 									{
-										internalType: "uint256",
-										name: "no_of_back",
-										type: "uint256",
+										internalType: "string",
+										name: "trans",
+										type: "string",
 									},
 									{
 										internalType: "uint256",
@@ -694,9 +889,9 @@
 										type: "string",
 									},
 									{
-										internalType: "uint256",
-										name: "age",
-										type: "uint256",
+										internalType: "string",
+										name: "skill_filter",
+										type: "string",
 									},
 									{
 										internalType: "uint256",
@@ -709,9 +904,85 @@
 										type: "uint256",
 									},
 									{
+										internalType: "string",
+										name: "trans",
+										type: "string",
+									},
+									{
 										internalType: "uint256",
-										name: "no_of_back",
+										name: "achivements",
 										type: "uint256",
+									},
+									{
+										internalType: "string",
+										name: "school",
+										type: "string",
+									},
+									{
+										internalType: "string",
+										name: "school_code",
+										type: "string",
+									},
+									{
+										internalType: "uint256",
+										name: "research",
+										type: "uint256",
+									},
+									{
+										internalType: "uint256",
+										name: "internship",
+										type: "uint256",
+									},
+								],
+								internalType: "struct InfoStudent.Student",
+								name: "",
+								type: "tuple",
+							},
+						],
+						stateMutability: "view",
+						type: "function",
+					},
+					{
+						inputs: [
+							{
+								internalType: "string",
+								name: "_skill_filter",
+								type: "string",
+							},
+						],
+						name: "skillStudent",
+						outputs: [
+							{
+								components: [
+									{
+										internalType: "string",
+										name: "rollno",
+										type: "string",
+									},
+									{
+										internalType: "string",
+										name: "name",
+										type: "string",
+									},
+									{
+										internalType: "string",
+										name: "skill_filter",
+										type: "string",
+									},
+									{
+										internalType: "uint256",
+										name: "cgpa",
+										type: "uint256",
+									},
+									{
+										internalType: "uint256",
+										name: "year_of_g",
+										type: "uint256",
+									},
+									{
+										internalType: "string",
+										name: "trans",
+										type: "string",
 									},
 									{
 										internalType: "uint256",
@@ -781,9 +1052,9 @@
 								type: "string",
 							},
 							{
-								internalType: "uint256",
-								name: "age",
-								type: "uint256",
+								internalType: "string",
+								name: "skill_filter",
+								type: "string",
 							},
 							{
 								internalType: "uint256",
@@ -796,9 +1067,9 @@
 								type: "uint256",
 							},
 							{
-								internalType: "uint256",
-								name: "no_of_back",
-								type: "uint256",
+								internalType: "string",
+								name: "trans",
+								type: "string",
 							},
 							{
 								internalType: "uint256",
@@ -830,8 +1101,55 @@
 						type: "function",
 					},
 				],
-				"0xeEE98e8F1e48162b6285312A4e604A640a06647d"
+				"0xAe73C5386F807c208423703E317244e08992d7A3"
 			);
+		}
+		// var encrypted = CryptoJS.AES.encrypt(
+		// 	"https://drive.google.com/file/d/1TRGQZDbI5qq321cqLv39lr4LNQKUTFZI/view?usp=sharing",
+		// 	"kd"
+		// );
+		// console.log(encrypted.toString());
+		async function give_all_student_with_skill() {
+			var search_value_skill = $("#skill_input_box").val();
+			console.log(search_value_skill);
+			if (search_value_skill == "Web Dev") {
+				var myModal = new bootstrap.Modal(
+					document.getElementById("exampleModal2")
+				);
+				myModal.show();
+				var para = document.createElement("ul");
+				para.innerHTML =
+					"<li>17BET0012</li><li>18BCI0216</li><li>18BIT0111</li><li>15MCT0231</li><li>17BCE0001</li><li>18BCI0216</li>";
+				document.getElementById("list_box").appendChild(para);
+			}
+			if (search_value_skill == "App Dev") {
+				var myModal = new bootstrap.Modal(
+					document.getElementById("exampleModal2")
+				);
+				myModal.show();
+				var para = document.createElement("ul");
+				para.innerHTML =
+					"<li>18BCI0216</li><li>18BIT0231</li><li>13BET0001</li><li>18BIT0231</li><li>19MCT0156</li>";
+				document.getElementById("list_box").appendChild(para);
+			}
+			if (search_value_skill == "Blockchain") {
+				var myModal = new bootstrap.Modal(
+					document.getElementById("exampleModal2")
+				);
+				myModal.show();
+				var para = document.createElement("ul");
+				para.innerHTML = "<li>18BIT0131</li><li>18BCI0216</li>";
+				document.getElementById("list_box").appendChild(para);
+			}
+			if (search_value_skill == "ML") {
+				var myModal = new bootstrap.Modal(
+					document.getElementById("exampleModal2")
+				);
+				myModal.show();
+				var para = document.createElement("ul");
+				para.innerHTML = "<li>18BIT0002</li><li>17BBE0111</li>";
+				document.getElementById("list_box").appendChild(para);
+			}
 		}
 		async function printStudent(roll_no) {
 			const student = await window.contract.methods
@@ -843,10 +1161,18 @@
 				$("#name_of_student").html(student.name);
 				$("#roll_no").html(student.rollno);
 				$("#cgpa").html("CGPA : " + student.cgpa);
-				$("#age").html("AGE : " + student.age);
 				$("#achivements").html("ACHIEVEMENT :" + student.achivements);
 				$("#internship").html("INTERNSHIPS :" + student.internship);
-				$("#no_of_back").html("N GRADES : " + student.no_of_back);
+				// console.log(student.trans);
+
+				var decrypted = CryptoJS.AES.decrypt(
+					"U2FsdGVkX18ncD1aa9c6UeBKCxlEuTX9b/CZwB6cW2uhYvl0Lw1w+wN4pt7/uFWZuGOskm4qV+VOYOXEHKKNDn4rcdIBHcoO8sr1e8I5p3DTazvtZeeEU8SingYnCTlax1PcNwIiifPTGhVWfqLhtQ==",
+					"kd"
+				);
+				//  THE SECRET KEY SHARED ONLY BETWEEN THE INSTITUTE AND PLATFORM
+				console.log(decrypted.toString(CryptoJS.enc.Utf8));
+				// document.getElementById("transcript_student").href =
+				// 	decrypted.toString(CryptoJS.enc.Utf8);
 				$("#research").html("RESEARCH : " + student.research);
 				$("#school").html(student.school);
 				$("#school_code").html(student.school_code);
