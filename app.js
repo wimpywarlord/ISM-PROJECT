@@ -43,6 +43,14 @@ app.get("/nonacad", (req, res) => {
 app.get("/comparative", (req, res) => {
     res.render("./comparative");
 });
+
+app.get("/team", (req, res) => {
+    res.render("./teamkshitij.ejs");
+});
+
+app.get("*", (req, res) => {
+    res.render("./notfound.ejs");
+});
   
 
 app.listen(process.env.PORT || 5000, () => {
