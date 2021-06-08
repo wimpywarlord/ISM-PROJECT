@@ -1,6 +1,5 @@
 const express = require("express");
 var bodyParser = require("body-parser");
-
 const app = express();
 
 var methodOverride = require("method-override");
@@ -20,30 +19,6 @@ app.use(
   })
 );
 
-app.get("/", (req, res) => {
-    res.render("./login.ejs");
-});
-
-app.get("/index", (req, res) => {
-    res.render("./index.ejs");
-});
-
-app.get("/charthome", (req, res) => {
-    res.render("./charthome.ejs");
-});
-
-app.get("/academic", (req, res) => {
-    res.render("./academic.ejs");
-});
-
-app.get("/nonacad", (req, res) => {
-    res.render("./nonacad");
-});
-
-app.get("/comparative", (req, res) => {
-    res.render("./comparative");
-});
-  
 
 app.listen(process.env.PORT || 5000, () => {
     console.log("working in 5000");
