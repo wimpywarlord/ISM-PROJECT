@@ -1156,11 +1156,9 @@
 				$("#achivements").html("ACHIEVEMENT :" + student.achivements);
 				$("#internship").html("INTERNSHIPS :" + student.internship);
 				// console.log(student.trans);
-
-				var decrypted = CryptoJS.AES.decrypt(
-					"U2FsdGVkX18ncD1aa9c6UeBKCxlEuTX9b/CZwB6cW2uhYvl0Lw1w+wN4pt7/uFWZuGOskm4qV+VOYOXEHKKNDn4rcdIBHcoO8sr1e8I5p3DTazvtZeeEU8SingYnCTlax1PcNwIiifPTGhVWfqLhtQ==",
-					"kd"
-				);
+				var incoming =
+					"U2FsdGVkX18ncD1aa9c6UeBKCxlEuTX9b/CZwB6cW2uhYvl0Lw1w+wN4pt7/uFWZuGOskm4qV+VOYOXEHKKNDn4rcdIBHcoO8sr1e8I5p3DTazvtZeeEU8SingYnCTlax1PcNwIiifPTGhVWfqLhtQ==";
+				var decrypted = CryptoJS.AES.decrypt(incoming, "kd");
 				//  THE SECRET KEY SHARED ONLY BETWEEN THE INSTITUTE AND PLATFORM
 				console.log(decrypted.toString(CryptoJS.enc.Utf8));
 				// document.getElementById("transcript_student").href =
